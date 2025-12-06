@@ -7,8 +7,10 @@
         <h1>HELLO, UNAUTHENTICATED USER!</h1>
 
     {% endif %}
-    <a href="{% url 'room_list'%}">Go to rooms list</a>
+    <div class="text-center mt-4">
+    <a href="{% url 'room_list'%}" class="btn btn-primary mb-3">Go to rooms list</a>
     <br>
-    <a href="{% url 'book_room'%}">Go to rooms booking</a>
+    <a href="{% url 'book_room'%}" class="btn btn-primary ">Go to rooms booking</a>
+    </div>
 
 {% endblock %}

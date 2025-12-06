@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from reservation.models import Room, Booking, Profile
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     # return HttpResponse(status=400)
@@ -20,7 +21,7 @@ def room_list(request):
     return render(request,
                   template_name="booking/rooms_list.html",
                   context=context,)
-
+@login_required
 def book_room(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -42,7 +43,7 @@ def book_room(request):
                 status=404
             )
         booking = Booking.objects.create(
-            user = request.user,
+            user=request.user,
             username=username,
             email=email,
             room=room,
