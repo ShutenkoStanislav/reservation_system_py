@@ -15,12 +15,11 @@ def index(request):
 
 def room_list(request):
     rooms = Room.objects.all()
-    context = {
-        "rooms" : rooms
-    }
-    return render(request,
-                  template_name="booking/rooms_list.html",
-                  context=context,)
+    context = {'rooms': rooms}
+    return render(request, 
+              "booking/rooms_list.html", 
+              context)
+
 @login_required
 def book_room(request):
     if request.method == "POST":

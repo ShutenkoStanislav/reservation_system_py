@@ -6,6 +6,9 @@
             <th>Room</th>
             <th>Capacity</th>
             <th>Location</th>
+            <th>Status</th>
+
+            
         </tr>
     </thead>
     <tbody>
@@ -14,6 +17,7 @@
             <td>{{ room.number }}</td>
             <td>{{ room.capacity }}</td>
             <td>{{ room.locations }}</td>
+            <td>{{ room.get_status }}</td>
         </tr>
         {% endfor %}
     </tbody>

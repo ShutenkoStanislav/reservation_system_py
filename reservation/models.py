@@ -11,6 +11,18 @@ class Room(models.Model):
     def __str__(self):
         return f"Номер приміщення #{self.number} - {self.capacity}, тип приміщення#{self.type}"
     
+    def get_status(self):
+        now = timezone.now()
+        currunt_booking = Booking.objects.filter(
+            room=self,
+            start_time__lte=now,
+            end_time__gte=now,
+            ).first()
+        if currunt_booking:
+            return f"Occupate to {currunt_booking.end_time}"
+        
+        return "Free for reservation"
+        
     class Meta:
         verbose_name = "Приміщення"
         verbose_name_plural = "Приміщення"
