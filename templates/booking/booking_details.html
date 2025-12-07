@@ -1,10 +1,17 @@
 {%extends "base.html"%}
 {% block content %}
 
-    <h1>Booking #{{booking.id}}</h1>
+    <!-- <h1>Booking #{{booking.id}}</h1>
     <p>User #{{booking.user}}</p>
     <p>Room #{{booking.room}}</p>
-    <p>Time range #{{booking.start_time}} - {{booking.end_time}}</p>
+    <p>Time range #{{booking.start_time}} - {{booking.end_time}}</p> -->
+
+    <div class="vstack gap-3">
+        <div class="p-2">Booking #{{booking.id}}</div>
+        <div class="p-2">User #{{booking.user}}</div>
+        <div class="p-2">Room #{{booking.room}}</div>
+        <div class="p-2">Time range #{{booking.start_time}} - {{booking.end_time}}</div>
+    </div>
 
 
     <div class="text-center mt-4">

@@ -1,23 +1,26 @@
 {%extends "base.html"%}
 {% block content %}
-
+<div class="input_margin">
     <form method="POST" action="{% url 'book_room'%}" class="form-group">
     {% csrf_token %} 
 
         <div class="mb-3">
         <label for="room_number" class="form-label">Room number:</label>
-        <input type="text" id="room_number" name="room_number" class="form-control">
+        
+        <input class="form-control form-control-lg" type="text" id="room_number"  aria-label=".form-control-lg example">
         </div>
         
         <div class="mb-3">
         <label for="start_time" class="form-label">Start time:</label>
-        <input type="datetime-local" id="start_time" name="start_time" class="form-control">
+       
+        <input class="form-control form-control-lg" type="datetime-local" id="start_time"  aria-label=".form-control-lg example">
         </div>
         
         <div class="mb-3">
         <label for="end_time" class="form-label">End time:</label>
-        <input type="datetime-local" id="end_time" name="end_time" class="form-control">
+        <input class="form-control form-control-lg" type="datetime-local" id="end_time"  aria-label=".form-control-lg example">
         </div>
+</div>      
         
         
         
