@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from reservation.models import Room, Booking, Profile
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def index(request):
     # return HttpResponse(status=400)
@@ -41,16 +42,27 @@ def book_room(request):
                 "This room number doesn't exist",
                 status=404
             )
+        
+        overlapping = Booking.objects.filter(
+            room=room,
+            start_time__lte=end_time,
+            end_time__gte=start_time,
+            ).exists()
+        
+        if overlapping:
+            messages.error(request, "This room already occupation at this time")
+            return redirect("book_room")
+
         booking = Booking.objects.create(
             user=request.user,
-            username=username,
-            email=email,
             room=room,
             start_time=start_time,
             end_time=end_time,
 
         )
         return redirect("booking_details", pk=booking.id)
+    
+
     
 
 

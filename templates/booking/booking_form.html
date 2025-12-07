@@ -3,16 +3,7 @@
 
     <form method="POST" action="{% url 'book_room'%}" class="form-group">
     {% csrf_token %} 
-        <div class="mb-3">
-            <label for="username" class="form-label">User name:</label>
-            <input type="text" id="username" name="username" class="form-control">
-        </div>
-        
-        <div class="mb-3">
-            <label for="email" class="form-label">User email:</label>
-            <input type="text" id="email" name="email" class="form-control">
-        </div>
-        
+
         <div class="mb-3">
         <label for="room_number" class="form-label">Room number:</label>
         <input type="text" id="room_number" name="room_number" class="form-control">
@@ -33,6 +24,13 @@
         <div class="text-center mt-4">
             <button type="submit" class="btn btn-primary">Book this room</button>
         </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        {% endif%}
+
 
 
 
