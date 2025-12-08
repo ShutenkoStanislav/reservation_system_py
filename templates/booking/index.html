@@ -7,6 +7,27 @@
         <h1>HELLO, UNAUTHENTICATED USER!</h1>
 
     {% endif %}
+
+    <div class="stat_row">
+        <div class="stat_card">
+            <h3> {{ num_rooms }}</h3>
+            <p>Rooms</p>
+        </div>
+
+        <div class="stat_card">
+            <h3> {{ num_booking }}</h3>
+            <p>Active reservations</p>     
+        </div>
+
+        <div class="stat_card">
+            <h3> {{ num_of_free_room }}</h3>
+            <p>Free rooms</p>  
+        </div>
+
+
+    </div>
+
+
     <div class="text-center mt-4">
     <a href="{% url 'room_list'%}" class="btn btn-primary mb-3">Go to rooms list</a>
     <br>

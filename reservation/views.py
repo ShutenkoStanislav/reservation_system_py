@@ -4,11 +4,18 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-def index(request):
-    # return HttpResponse(status=400)
-    context = {
-        "render_string" : "Hello world!"
 
+@login_required
+def index(request):
+   
+    num_rooms = Room.objects.count()
+    num_booking = Booking.objects.count()
+
+
+    context = {
+        "num_rooms": num_rooms,
+        "num_booking": num_booking,
+        "num_of_free_room": num_rooms - num_booking,
     }
 
     return render (request, template_name="booking/index.html", context=context)
