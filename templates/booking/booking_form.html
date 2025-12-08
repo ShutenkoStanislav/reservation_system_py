@@ -1,43 +1,37 @@
-{%extends "base.html"%}
+{% extends "base.html" %}
 {% block content %}
+
 <div class="input_margin">
-    <form method="POST" action="{% url 'book_room'%}" class="form-group">
-    {% csrf_token %} 
+    <form method="POST" action="{% url 'book_room' %}" class="form-group">
+        {% csrf_token %} 
 
         <div class="mb-3">
-        <label for="room_number" class="form-label">Room number:</label>
-        
-        <input class="form-control form-control-lg" type="text" id="room_number"  aria-label=".form-control-lg example">
+            <label for="room_number" class="form-label">Room number:</label>
+            <input 
+                class="form-control form-control-lg" type="number" id="room_number" name="room_number" required>
         </div>
         
         <div class="mb-3">
-        <label for="start_time" class="form-label">Start time:</label>
-       
-        <input class="form-control form-control-lg" type="datetime-local" id="start_time"  aria-label=".form-control-lg example">
+            <label for="start_time" class="form-label">Start time:</label>
+            <input class="form-control form-control-lg" type="datetime-local" id="start_time" name="start_time" required>
         </div>
         
         <div class="mb-3">
-        <label for="end_time" class="form-label">End time:</label>
-        <input class="form-control form-control-lg" type="datetime-local" id="end_time"  aria-label=".form-control-lg example">
+            <label for="end_time" class="form-label">End time:</label>
+            <input class="form-control form-control-lg" type="datetime-local" id="end_time" name="end_time" required>
         </div>
-</div>      
-        
-        
         
         <div class="text-center mt-4">
             <button type="submit" class="btn btn-primary">Book this room</button>
         </div>
 
         {% if messages %}
-            {% for message in messages %}
-                <p style="color: red;">{{ message }}</p>
-            {% endfor %}
-        {% endif%}
-
-
-
-
-
+            <div class="alert alert-danger mt-3">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
     </form>
-
+</div>
 {% endblock %}

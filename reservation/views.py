@@ -24,8 +24,6 @@ def room_list(request):
 @login_required
 def book_room(request):
     if request.method == "POST":
-        username = request.POST.get("username")
-        email = request.POST.get("email")
         room_number = request.POST.get("room_number")
         start_time = request.POST.get("start_time")
         end_time = request.POST.get("end_time")
