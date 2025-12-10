@@ -85,3 +85,22 @@ ls   # Показує файли (має бути manage.py)
 
 
 https://github.com/Rogacka/reservation_system_py
+
+
+<!-- {% extends "base.html" %}
+{% block content %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags}}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif%}
+    <form method="POST" action="{% url 'register'  %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+{% endblock %} -->
+
+<!-- next custom version -->
