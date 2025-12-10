@@ -12,8 +12,11 @@ def register(request):
             user = form.save()
             login(request, user)
             return redirect("index")
+       
+            
     else:
         form = UserCreationForm()
+        messages.error(request, "some error")
 
 
     return render(

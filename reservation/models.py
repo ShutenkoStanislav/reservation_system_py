@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.utils import timezone
 
 class Room(models.Model):
@@ -29,7 +29,7 @@ class Room(models.Model):
         ordering = ["number"]
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     all_rooms = models.ForeignKey(Room, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=30, null=True, blank=True)
     email = models.EmailField(blank=True)  
@@ -44,7 +44,7 @@ class Profile(models.Model):
         ordering = ["user"]
 
 class Booking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bookings")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="bookings")
     room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name="bookings")
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
