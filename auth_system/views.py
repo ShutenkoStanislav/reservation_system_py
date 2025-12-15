@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from auth_system.form import CustomUserCreationForm, AuthenticationForm
+from auth_system.form import CustomUserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
 
@@ -11,7 +12,7 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
+            auth_login(request, user)
             return redirect("index")
        
             
@@ -49,7 +50,7 @@ def login_view(request):
             messages.error(request, "Invalid form data")
     else:
         form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form})  
+    return render(request, 'registration/login.html', {'form': form})  
             
 
 
