@@ -1,19 +1,19 @@
-{%extends "base.html"%}
+{% extends "base.html" %}
 {% block content %}
 
-   
-
-    <div class="vstack gap-3">
-        <div class="p-2">Booking #{{booking.id}}</div>
-        <div class="p-2">User #{{booking.user}}</div>
-        <div class="p-2">Room #{{booking.room}}</div>
-        <div class="p-2">Time range #{{booking.start_time}} - {{booking.end_time}}</div>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Booking #{{booking.id}}</h1>
+            <div class="mb-3"><h2><strong>User:</strong> {{booking.user}}</h2></div>
+            <div class="mb-3"><h2><strong>Room:</strong> {{booking.room}}</h2></div>
+            <div class="mb-3"><h2><strong>Time range:</strong> {{booking.start_time}} - {{booking.end_time}}</h2></div>
+        </div>
     </div>
-
 
     <div class="text-center mt-4">
-    <a href="{% url 'index'%}" class="btn btn-primary mb-3">Back to home page</a>
+        <a href="{% url 'index' %}" class="btn btn-primary mb-3">Back to home page</a>
     </div>
-
+</div>
 
 {% endblock %}
