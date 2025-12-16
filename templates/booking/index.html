@@ -2,36 +2,40 @@
 {% block content %}
     {{ render_string }}
     {% if request.user.is_authenticated %}
-        <h1>HELLO, AUTHENTICATED USER!</h1>
+        <h1>HELLO, {{user.username}}!</h1>
     {% else %}
         <h1>HELLO, UNAUTHENTICATED USER!</h1>
 
     {% endif %}
+    <div class="text-center mt-4">
+        <p class="big_text">Our hotel starts here</p>
+    </div>
 
     <div class="stat_row">
         <div class="stat_card">
-            <h3> {{ num_rooms }}</h3>
-            <p>Rooms</p>
+            <h1> {{ num_rooms }}+</h1>
+            <h1>Rooms</h1>
         </div>
 
         <div class="stat_card">
-            <h3> {{ num_booking }}</h3>
-            <p>Active reservations</p>     
+            <h1> {{ num_booking }}+</h1>
+            <h1>Types</h1>     
         </div>
 
         <div class="stat_card">
-            <h3> {{ num_of_free_room }}</h3>
-            <p>Free rooms</p>  
+            <h1> {{ num_of_free_room }}+</h1>
+            <h1>Free now</h1>  
         </div>
 
 
     </div>
 
 
-    <div class="text-center mt-4">
-    <a href="{% url 'room_list'%}" class="btn btn-primary mb-3">Go to rooms list</a>
-    <br>
-    <a href="{% url 'book_room'%}" class="btn btn-primary ">Go to rooms booking</a>
-    </div>
+    <p class="d-flex justify-content-center my-5 ">
+    <a href="{% url 'room_list'%}" class="btn home_button btn-lg me-5">Booking now</a>
+    
+    <a href="{% url 'book_room'%}" class="btn home_button btn-lg me-5">Room types</a>
+    </p>
+
 
 {% endblock %}
