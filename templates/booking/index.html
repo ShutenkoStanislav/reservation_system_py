@@ -1,8 +1,22 @@
 {% extends "base.html"%}
+{% load static %}
 {% block content %}
     {{ render_string }}
     {% if request.user.is_authenticated %}
+
         <h1>HELLO, {{user.username}}!</h1>
+
+        <h1>{{user.username}}</h1>
+        <a href="{% url 'profile_detail'%}">
+            <img scr="{% static 'img/Account_logo_valid.png' %}"
+                alt="Profile"
+                style="width: 60px; height: 60px; border-radius: 50%; cursor: pointer; transition: opacity 0.3s;;"
+                onmouseover="this.style.opacity='0.6'"
+                onmouseover="this.style.opacity='1'"
+            >
+
+        </a>
+   
     {% else %}
         <h1>HELLO, UNAUTHENTICATED USER!</h1>
 

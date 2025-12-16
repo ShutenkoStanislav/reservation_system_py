@@ -87,3 +87,17 @@ def booking_details(request, pk):
             "This boooking doesn't exist",
             status=404
         )
+    
+
+@login_required
+def profile_details(request):
+    user = request.user
+    
+    context = {
+        'user': user,
+    }
+
+    return render(
+            request,
+            template_name='booking/profile.html',
+            context=context)
