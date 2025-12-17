@@ -5,6 +5,7 @@ from django.utils import timezone
 class Room(models.Model):
     number = models.IntegerField()
     capacity = models.IntegerField()
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     locations = models.TextField()
     type = models.CharField(max_length=222, null=True, blank=True)
 

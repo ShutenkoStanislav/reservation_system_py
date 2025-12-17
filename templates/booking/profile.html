@@ -1,11 +1,54 @@
 {% extends "base.html"%}
+{% load static %}
 {% block content %}
 
-<h2>Name: {{user.first_name}}</h2>
-<h2>Middle name: {{user.middle_name}}</h2>
-<h2>Surname: {{user.last_name}}</h2>
-<h2>Phone: {{user.phone_number}}</h2>
-<h2>Email: {{user.email}}</h2>
+
+    <div style="display: flex;flex-direction: column;  gap: 10px; margin-top: 68px;">
+        <h1 style="margin: 0; margin-left: 70px;">{{user.username}}</h1>
+        <a href="{% url 'index'%}">
+            <img src="{% static 'img/Account_logo_valid.png' %}"
+            alt="Profile"
+            style="width: 280px; height: 280px; border-radius: 50%; cursor: pointer; transition: opacity 0.3s;"
+            onmouseover="this.style.opacity='0.6'"
+            onmouseout="this.style.opacity='1'"
+            >
+
+        </a>
+    </div>
+
+
+<div class="wrapper_containers"> 
+    <div class="big_container">
+        <div class="small_container">
+            <p class="label">Name</p>
+            <p class="value">{{user.first_name}}</p>  
+        </div>
+            
+        <div class="small_container">
+            <p class="label">Middle name</p>
+            <p class="value">{{user.middle_name}}</p>             
+        </div>
+
+        <div class="small_container">
+            <p class="label">Surname</p>
+            <p class="value">{{user.last_name}}</p>          
+        </div>
+    </div>
+
+
+    <div class="big_container">
+        <div class="small_container">
+            <p class="label">Phone</p>
+            <p class="value">{{user.phone_number}}</p>          
+        </div>
+
+        <div class="small_container">
+            <p class="label">Email</p>
+            <p class="value">{{user.email}}</p>          
+        </div>
+
+    </div>
+</div>
 
 
 
