@@ -1,6 +1,7 @@
 .big_container {
     display: flex;
-    background-color: #a6a6ae;
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 24px;
     flex-direction: column;
     padding: 20px;

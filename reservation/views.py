@@ -3,6 +3,7 @@ from reservation.models import Room, Booking, Profile
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.utils import timezone
 
 
 @login_required
@@ -22,7 +23,14 @@ def index(request):
     
 
 def room_list(request):
-    rooms = Room.objects.all()
+    now = timezone.now()
+
+    occupied_room_ids = Booking.objects.filter(
+        start_time__lte=now,
+        end_time__gte=now,
+    ).values_list('room_id', flat=True)
+    rooms = Room.objects.exclude(id__in=occupied_room_ids)
+    
     context = {'rooms': rooms}
     return render(request, 
               "booking/rooms_list.html", 

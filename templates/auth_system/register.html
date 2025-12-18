@@ -7,7 +7,7 @@
     <form method="POST" action="{% url 'register'  %}">
         {% csrf_token %}
         <div class="text-center mb-4">
-                <h1>Create account</h1>   
+            <h1>Create account</h1>   
         </div>
 
         <div class="input_group">
@@ -27,15 +27,27 @@
                 <input class="form-control form-control-lg" type="text" name="phone_number" placeholder="Phone number" required>
             </div>
             <div class="mb-3">
-                <input class="form-control form-control-lg" type="text" name="email" placeholder="Email address" required>
+                <input class="form-control form-control-lg" type="email" name="email" placeholder="Email address" required>
             </div>
             <div class="mb-3">
-                <input class="form-control form-control-lg" type="password" name="password" placeholder="Password" required>
+                <input class="form-control form-control-lg" type="password" name="password1" placeholder="Password" required>
             </div>
             <div class="mb-3">
-                <input class="form-control form-control-lg" type="password" name="password_comfirm" placeholder="Password confirmation" required>
+                <input class="form-control form-control-lg" type="password" name="password2" placeholder="Password confirmation" required>
             </div>
         </div>
+
+       
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        {% endif %}
+       
         <div class="text-center mt-4">
             <button type="submit" class="btn home_button btn-lg me-5">Sing in</button>
         </div>

@@ -1,0 +1,27 @@
+.rooms-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.room-card {
+    width: 100% !important;
+    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgb(0, 0, 0, 0.2);
+}
+
+.room-card .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
