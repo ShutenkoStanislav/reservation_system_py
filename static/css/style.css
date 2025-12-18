@@ -1,5 +1,5 @@
 label {
-    color: rgb(33, 33, 184);
+    color: black;
     font-size: 2.5rem !important;
 }
 
@@ -17,6 +17,7 @@ table {
 .input_margin {
     display: flex;
     margin-bottom: 50px;
+
 }
 
 .stat_row {
@@ -46,7 +47,7 @@ table {
     background-color: #1800ad;
     color: white;
     border-radius: 20px;
-    padding: 25px 90px !important;
+    padding: 15px 90px !important;
     font-size: 2rem !important;
     margin: 0 50px !important;
     min-width: 250px;
@@ -63,4 +64,42 @@ table {
 
 }
 
+.login_container {
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    color: black;
+    padding: 70px;
+    max-width: 550px; 
+    width: 100%;
 
+    
+
+}
+
+.wrapper_login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 20px;
+
+    
+
+
+}
+
+.login_container h1 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.login_container h3 {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.input_group .form_control {
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
