@@ -77,17 +77,29 @@ table {
 
 }
 
+.singin_container {
+    padding: 20px;
+}
+
 .wrapper_login {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 60vh;
     padding: 20px;
-
-    
-
-
 }
+
+.wrapper_singin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 0px;
+    
+    
+    
+}
+
 
 .login_container h1 {
     font-weight: bold;

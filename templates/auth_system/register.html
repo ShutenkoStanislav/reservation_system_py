@@ -1,12 +1,45 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    
+
+<div class="wrapper_login wrapper_singin">
+    <div class="login_container singin_container">
     <form method="POST" action="{% url 'register'  %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="text-center mb-4">
+                <h1>Create account</h1>   
+        </div>
+
+        <div class="input_group">
+            <div class="mb-3">
+                <input class="form-control form-control-lg" type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="mb-3">
+                <input class="form-control form-control-lg" type="text" name="first_name" placeholder="First name" required>
+            </div>
+            <div class="mb-3">
+                <input class="form-control form-control-lg" type="text" name="middle_name" placeholder="Middle name" required>
+            </div>
+            <div class="mb-3">
+                <input class="form-control form-control-lg" type="text" name="last_name" placeholder="Last name" required>
+            </div>
+            <div class="mb-3">
+                <input class="form-control form-control-lg" type="text" name="phone_number" placeholder="Phone number" required>
+            </div>
+            <div class="mb-3">
+                <input class="form-control form-control-lg" type="text" name="email" placeholder="Email address" required>
+            </div>
+            <div class="mb-3">
+                <input class="form-control form-control-lg" type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="mb-3">
+                <input class="form-control form-control-lg" type="password" name="password_comfirm" placeholder="Password confirmation" required>
+            </div>
+        </div>
         <div class="text-center mt-4">
-            <button type="submit" class="btn home_button btn-lg me-5">Register</button>
+            <button type="submit" class="btn home_button btn-lg me-5">Sing in</button>
         </div>
     </form>
+    </div>
+</div>
 {% endblock %}
