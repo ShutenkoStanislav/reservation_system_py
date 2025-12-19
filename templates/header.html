@@ -8,10 +8,17 @@
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
 </head>
 <body>
-    <header>
-        <h1>Booking-system.com</h1>
-        <button class="logout-btn" onclick="window.location.href='login/'">Logout</button>  
-    </header>
+<header>
+    <h1>Booking-system.com</h1>
+    {% if user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}" class="logout-btn" style="text-decoration: none;">Login</a>
+    {% endif %}
+</header>
     <main>
         {% block content %}{% endblock %}
     </main>

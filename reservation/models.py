@@ -10,7 +10,7 @@ class Room(models.Model):
     type = models.CharField(max_length=222, null=True, blank=True)
 
     def __str__(self):
-        return f"Номер приміщення #{self.number} - {self.capacity}, тип приміщення#{self.type}"
+        return f"Room number #{self.number} - {self.capacity}, room type #{self.type}"
     
 
         

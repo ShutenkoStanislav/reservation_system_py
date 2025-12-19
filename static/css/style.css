@@ -83,6 +83,12 @@ table {
 
 }
 
+.infa_container {
+    padding: 60px;
+    max-width: 1000px;
+    
+}
+
 .wrapper_login {
     display: flex;
     align-items: center;
