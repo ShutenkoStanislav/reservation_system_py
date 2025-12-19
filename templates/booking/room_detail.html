@@ -16,7 +16,15 @@
         
     </div>
 
-<!-- <h3>Room: {{room_infa.number}}</h3>
-<h3>Capacity: {{room_infa.capacity}}</h3>  -->
+    <div class="class_infaa">
+        <p>Room: {{room_infa.number}}</p>
+        <p>Capacity: {{room_infa.capacity}}</p>
+    </div>
+
+    <div style="display: flex;flex-direction: column; margin-top: 68px;  margin-left: 800px;">
+        <a href="{% url 'book_room' room_infa.id %}" class="btn home_button btn-lg me-5">Booking</a>
+    </div>
+
+
 
 {% endblock %}

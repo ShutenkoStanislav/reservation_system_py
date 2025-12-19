@@ -2,27 +2,51 @@
 {% block content %}
 
 <div class="input_margin">
-    <form method="POST" action="{% url 'book_room' %}" class="form-group">
+    <form method="POST" action="{% url 'book_room' room.id%}" class="form-group">
         {% csrf_token %} 
 
         <div class="mb-3">
-            <label for="room_number" class="form-label">Room number:</label>
+            <label for="room_number" class="form-label">First name</label>
             <input 
-                class="form-control form-control-lg" type="number" id="room_number" name="room_number" required>
+                class="form-control form-control-lg"
+                type="text"
+                id="first_name" 
+                name="first_name" 
+                value="{{user.first_name}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="room_number" class="form-label">Last name</label>
+            <input 
+                class="form-control form-control-lg"
+                type="text"
+                id="last_name" 
+                name="last_name" 
+                value="{{user.last_name}}">
         </div>
         
         <div class="mb-3">
-            <label for="start_time" class="form-label">Start time:</label>
-            <input class="form-control form-control-lg" type="datetime-local" id="start_time" name="start_time" required>
+            <label for="start_time" class="form-label">Start time</label>
+            <input 
+            class="form-control form-control-lg"
+            type="datetime-local"
+            id="start_time"
+            name="start_time"
+            required>
         </div>
         
         <div class="mb-3">
-            <label for="end_time" class="form-label">End time:</label>
-            <input class="form-control form-control-lg" type="datetime-local" id="end_time" name="end_time" required>
+            <label for="end_time" class="form-label">End time</label>
+            <input 
+            class="form-control form-control-lg" 
+            type="datetime-local" 
+            id="end_time" 
+            name="end_time" 
+            required>
         </div>
         
         <div class="text-center mt-4">
-            <button type="submit" class="btn btn-primary">Book this room</button>
+            <button type="submit" class="btn home_button btn-lg me-5">Accept</button>  
         </div>
 
         {% if messages %}

@@ -45,24 +45,15 @@ def room_details(request, room_id):
                   context)
 
 @login_required
-def book_room(request):
+def book_room(request, room_id):
     if request.method == "POST":
-        room_number = request.POST.get("room_number")
+       
         start_time = request.POST.get("start_time")
         end_time = request.POST.get("end_time")
 
-        try:
-            room = Room.objects.get(number=room_number)
-        except ValueError:
-            return HttpResponse(
-                "Wrong value for room number",
-                status=400
-            )
-        except Room.DoesNotExist:
-            return HttpResponse(
-                "This room number doesn't exist",
-                status=404
-            )
+        
+        room = get_object_or_404(Room, id=room_id)
+       
         
         overlapping = Booking.objects.filter(
             room=room,
@@ -72,7 +63,7 @@ def book_room(request):
         
         if overlapping:
             messages.error(request, "This room already occupation at this time")
-            return redirect("book_room")
+            return redirect("book_room", room_id=room_id)
 
         booking = Booking.objects.create(
             user=request.user,
@@ -88,7 +79,8 @@ def book_room(request):
 
 
     else:
-        return render(request, template_name="booking/booking_form.html")
+        room = get_object_or_404(Room, id=room_id)
+        return render(request, "booking/booking_form.html", {'room': room})
 
 
 def booking_details(request, pk):
