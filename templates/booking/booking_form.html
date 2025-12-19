@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="input_margin">
+<div class="wrapper_login">
+    <div class="login_container form_container">
     <form method="POST" action="{% url 'book_room' room.id%}" class="form-group">
         {% csrf_token %} 
+        <div class="forms_grid">
 
         <div class="mb-3">
             <label for="room_number" class="form-label">First name</label>
@@ -45,8 +47,8 @@
             required>
         </div>
         
-        <div class="text-center mt-4">
-            <button type="submit" class="btn home_button btn-lg me-5">Accept</button>  
+        <div class="button-wrapper">
+            <button type="submit" class="btn form-submit-button btn-lg">Accept</button>  
         </div>
 
         {% if messages %}
@@ -56,6 +58,8 @@
                 {% endfor %}
             </div>
         {% endif %}
+        </div>
     </form>
+    </div>
 </div>
 {% endblock %}

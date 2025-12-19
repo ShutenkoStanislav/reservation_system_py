@@ -14,11 +14,7 @@ table {
     color: white;
 }
 
-.input_margin {
-    display: flex;
-    margin-bottom: 50px;
 
-}
 
 .stat_row {
     display: flex;
@@ -79,6 +75,12 @@ table {
 
 .singin_container {
     padding: 20px;
+}
+
+.form_container {
+    padding: 0;
+    max-width: 1050px; 
+
 }
 
 .wrapper_login {
