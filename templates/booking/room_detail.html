@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1 class="class_h1">{{room_infa.locations}}</h1>
+
+    <div style="display: flex;flex-direction: column;  gap: 10px; margin-top: 68px;  margin-left: 20px;">
+        
+        
+            <img src="{% static 'img/room_image.jpg' %}"
+            alt="Profile"
+            style="width: 808px; height: 458px; "
+            
+            >
+
+        
+    </div>
+
+<!-- <h3>Room: {{room_infa.number}}</h3>
+<h3>Capacity: {{room_infa.capacity}}</h3>  -->
+
+{% endblock %}

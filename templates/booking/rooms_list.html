@@ -4,8 +4,11 @@
 
 <div class="rooms-container">
     {% for room in rooms %}
+    
     <div class="card room-card">
+        <a href="{% url 'room_details' room.id %}">
         <img src="{% static 'img/room_image.jpg' %}" class="card-img-top" alt="Room_list">
+        </a>
         <div class="card-body">
             <h5 class="card-title">{{room.type}}</h5>
             <h6 class="card-text">{{room.locations}}</h6>
@@ -14,6 +17,7 @@
             <li class="list-group-item">{{room.price}}$ per day</li>
         </ul>
     </div>
+    
     {% endfor %}
 </div>
 

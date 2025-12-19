@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from reservation.models import Room, Booking, Profile
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.utils import timezone
+
 
 
 @login_required
@@ -35,6 +36,13 @@ def room_list(request):
     return render(request, 
               "booking/rooms_list.html", 
               context)
+
+def room_details(request, room_id):
+    room_infa = get_object_or_404(Room, id=room_id)
+    context = {'room_infa': room_infa}
+    return render(request,
+                  "booking/room_detail.html",
+                  context)
 
 @login_required
 def book_room(request):
