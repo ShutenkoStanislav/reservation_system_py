@@ -12,11 +12,12 @@ def index(request):
    
     num_rooms = Room.objects.count()
     num_booking = Booking.objects.count()
+    num_types = Room.objects.values('type').distinct().count()
 
 
     context = {
         "num_rooms": num_rooms,
-        "num_booking": num_booking,
+        "num_booking": num_types,
         "num_of_free_room": num_rooms - num_booking,
     }
 
@@ -109,3 +110,14 @@ def profile_details(request):
             request,
             template_name='booking/profile.html',
             context=context)
+
+
+def booking_types(request):
+    room_types = Room.objects.values_list('type', flat=True).distinct()
+    
+    rooms_by_type = {}
+    for room_type in room_types:
+        rooms_by_type[room_type] = Room.objects.filter(type=room_type)
+    
+    context = {'rooms_by_type': rooms_by_type}
+    return render(request, 'booking/booking_type.html', context)

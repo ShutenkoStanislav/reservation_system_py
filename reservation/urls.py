@@ -9,6 +9,7 @@ urlpatterns = [
     path("booking_details/<int:pk>/", views.booking_details, name="booking_details"),
     path('accounts/', include('auth_system.urls')),
     path("profile/", views.profile_details, name="profile_detail"),
+    path("room_types", views.booking_types, name="booking_types")
 ]
 
 
