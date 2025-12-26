@@ -93,6 +93,31 @@ Access admin panel at `/admin/` with superuser credentials to:
 - login: admin
 - password: admin
 
+## Screenshots
+
+### Home Page
+![Home Page](screenshots/home_page.png)
+
+### Profile
+![Profile](screenshots/profile_details.png)
+
+### Rooms list
+![Rooms list](screenshots/rooms_list.png)
+
+### Rooms list by types
+![Rooms list by types](screenshots/room_by_types.png)
+
+### Room information
+![Room information](screenshots/room_info.png)
+
+### Booking form
+![Booking form](screenshots/booking_form.png)
+
+### Booking information
+![Booking information](screenshots/booking_info.png)
+
+
+
 
 
 
